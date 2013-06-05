@@ -1,0 +1,23 @@
+{
+  "name": "quake-sdk",
+  "version": "0.0.0",
+  "description": "Quake SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deltaepsilon/quake-sdk.git"
+  },
+  "keywords": [
+    "quake",
+    "sdk",
+    "quiver",
+    "express",
+    "node",
+    "sails"
+  ],
+  "author": "Christopher Esplin",
+  "license": "BSD"
+}
