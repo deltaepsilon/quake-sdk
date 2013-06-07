@@ -37,6 +37,9 @@ decision.get('/quake-sdk/auth', passport.authenticate('oauth2', { failureRedirec
 });
 
 
+/*
+ *  Exports
+*/
 module.exports.passport = passport;
 
 module.exports.middleware = {
