@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         },
         watch: {
             src: {
-                files: ['test/*', 'index.js', 'middleware/*', 'config/*', 'config/**/*'],
+                files: ['test/*', 'index.js', 'middleware/*', 'config/*', 'lib/*'],
                 tasks: ['mochaTest'],
                 option: {
                     livereload: true
