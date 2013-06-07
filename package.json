@@ -19,5 +19,10 @@
     "sails"
   ],
   "author": "Christopher Esplin",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "convict": "~0.3.1",
+    "passport": "~0.1.17"
+    "passport-oauth": "~0.1.15"
+  }
 }
