@@ -21,7 +21,7 @@ suite('Auth', function() {
 
   test('Auth should return a token', function(done) {
       sdk.auth.getToken(function (token) {
-        assert.isNotNull(token, 'Auth should return a token.');
+        assert.equal(token.length, 36, 'Auth should return a 36-character token');
         done();
       });
   });
