@@ -7,8 +7,7 @@ var express = require('express'),
   sdk = require('./../index.js'),
   userMock = require('./mocks/userMock.js'),
   server,
-  token,
-  newCookies;
+  token;
 
 suite('Auth', function() {
   suiteSetup(function(done) {
@@ -26,7 +25,8 @@ suite('Auth', function() {
 
   test('User can be saved', function(done) {
     sdk.user.findOrCreate(userMock, function (err, res) {
-      console.log('test/user.js err, res', res.text);
+      var user = JSON.parse(res.text);
+      assert.equal(userMock.id, user.providerID, 'User should be saved with a matching providerID.');
       done();
     });
   });
