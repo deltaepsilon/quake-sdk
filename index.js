@@ -16,25 +16,11 @@ if (conf.get('env') === 'development') {
 }
 
 /*
- *  Set up passport routes
-*/
-passport.use(new OAuth2Strategy({
-  authorizationURL: quakeRoot + '/auth/authorize',
-  tokenURL: quakeRoot + '/auth/token',
-  clientID: conf.get('client_id'),
-  clientSecret: conf.get('client_secret'),
-  callbackURL: quiverRoot + '/quake-sdk/auth/authorize/decision'
-}, function (accessToken, refreshToken, profile, done) {
-  done(null, profile);
-  callback(accessToken);
-}));
-
-/*
  *  Set up a dummy route to initiate an auth transaction. Easier to do it this way than to just call passport.authenticate
-*/
-decision.get('/quake-sdk/auth', passport.authenticate('oauth2', { failureRedirect: '/auth/failure' }), function(req, res) {
-  return res.redirect('/auth/success');
-});
+ */
+//decision.get('/quake-sdk/auth', passport.authenticate('oauth2', { failureRedirect: '/auth/failure' }), function(req, res) {
+//  return res.redirect('/auth/success');
+//});
 
 
 /*
