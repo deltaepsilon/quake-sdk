@@ -1,11 +1,7 @@
 var conf = require('./config/convict.js'),
   request = require('superagent'),
-  passport = require('passport'),
-  decision = require('./middleware/decision'),
-  util = require('./util.js')
-  OAuth2Strategy = require('passport-oauth').OAuth2Strategy,
-  quakeRoot = 'https://' + conf.get('quake_host') + ':' + conf.get('quake_port'),
-  quiverRoot = 'http://' + conf.get('quiver_host') + ':' + conf.get('quiver_port');
+  passportLib = require('./lib/passport'),
+  decision = require('./middleware/decision');
 
 
 /*
@@ -26,7 +22,7 @@ if (conf.get('env') === 'development') {
 /*
  *  Exports
 */
-module.exports.passport = passport;
+module.exports.passport = passportLib.getPassport();
 
 module.exports.middleware = {
   decision: decision
