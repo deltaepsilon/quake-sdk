@@ -25,7 +25,8 @@
     "passport": "~0.1.17",
     "passport-oauth": "~0.1.15",
     "express": "~3.2.6",
-    "superagent": "~0.14.7"
+    "superagent": "~0.14.7",
+    "underscore": "~1.4.4"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.4.4",

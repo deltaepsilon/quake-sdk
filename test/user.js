@@ -5,13 +5,16 @@ var express = require('express'),
   conf = require('./../config/convict.js'),
   request = require('supertest'),
   sdk = require('./../index.js'),
-  server;
+  userMock = require('./mocks/userMock.js'),
+  server,
+  token,
+  newCookies;
 
 suite('Auth', function() {
   suiteSetup(function(done) {
     app.use(sdk.middleware.decision);
     server = app.listen(conf.get('quiver_port'));
-    sdk.middleware.getToken(function (token) {
+    sdk.auth.getToken(function (newToken, newCookies) {
       done();
     });
   });
@@ -22,7 +25,10 @@ suite('Auth', function() {
   });
 
   test('User can be saved', function(done) {
-      //TODO Write this test and then write the feature of user.findOrCreate
+    sdk.user.findOrCreate(userMock, function (err, res) {
+      console.log('test/user.js err, res', res.text);
+      done();
+    });
   });
 
 });
