@@ -24,8 +24,7 @@ suite('Auth', function() {
   });
 
   test('User can be saved', function(done) {
-    sdk.user.findOrCreate(userMock, function (err, res) {
-      var user = JSON.parse(res.text);
+    sdk.user.findOrCreate(userMock, function (err, user) {
       assert.equal(userMock.id, user.providerID, 'User should be saved with a matching providerID.');
       done();
     });
