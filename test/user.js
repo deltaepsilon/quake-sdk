@@ -6,6 +6,7 @@ var express = require('express'),
   request = require('supertest'),
   sdk = require('./../index.js'),
   userMock = require('./mocks/userMock.js'),
+  savedUser,
   server,
   token;
 
@@ -13,7 +14,7 @@ suite('Auth', function() {
   suiteSetup(function(done) {
     app.use(sdk.middleware.decision);
     server = app.listen(conf.get('quiver_port'));
-    sdk.auth.getToken(function (newToken, newCookies) {
+    sdk.auth.getToken('quiver', function (newToken, newCookies) {
       done();
     });
   });
@@ -25,7 +26,17 @@ suite('Auth', function() {
 
   test('User can be saved', function(done) {
     sdk.user.findOrCreate(userMock, function (err, user) {
+      savedUser = user
       assert.equal(userMock.id, user.providerID, 'User should be saved with a matching providerID.');
+      done();
+    });
+  });
+
+  test('New user can auth with server', function (done) {
+    console.log('attempting to auth with ', savedUser.id);
+    sdk.auth.getToken(savedUser.id, function (token, header) {
+      assert.equal(token.length, 36, 'New user can auth with server... 36 character token should be returned');
+      assert.equal('Bearer ' + token, header, 'Header should be a bearer token header');
       done();
     });
   });
