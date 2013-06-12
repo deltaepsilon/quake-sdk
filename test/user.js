@@ -33,7 +33,6 @@ suite('Auth', function() {
   });
 
   test('New user can auth with server', function (done) {
-    console.log('attempting to auth with ', savedUser.id);
     sdk.auth.getToken(savedUser.id, function (token, header) {
       assert.equal(token.length, 36, 'New user can auth with server... 36 character token should be returned');
       assert.equal('Bearer ' + token, header, 'Header should be a bearer token header');
