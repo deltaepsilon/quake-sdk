@@ -14,7 +14,7 @@ suite('Auth', function() {
   suiteSetup(function(done) {
     app.use(sdk.middleware.decision);
     server = app.listen(conf.get('quiver_port'));
-    sdk.auth.getToken('quiver', function (newToken, newCookies) {
+    sdk.auth.getToken('quiver', null, null, function (newToken, newCookies) {
       done();
     });
   });
@@ -33,7 +33,7 @@ suite('Auth', function() {
   });
 
   test('New user can auth with server', function (done) {
-    sdk.auth.getToken(savedUser.id, function (token, header) {
+    sdk.auth.getToken(savedUser.id, savedUser.clientID, savedUser.clientSecret, function (token, header) {
       assert.equal(token.length, 36, 'New user can auth with server... 36 character token should be returned');
       assert.equal('Bearer ' + token, header, 'Header should be a bearer token header');
       done();
