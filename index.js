@@ -7,9 +7,7 @@ var conf = require('./config/convict.js'),
 /*
  *  Allow https testing with self-signed certs. See https://github.com/visionmedia/superagent/issues/188
 */
-if (conf.get('env') === 'development') {
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-}
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 /*
  *  Set up a dummy route to initiate an auth transaction. Easier to do it this way than to just call passport.authenticate
