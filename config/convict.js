@@ -6,34 +6,28 @@ var convict = require('convict'),
       default: "development",
       env: "NODE_ENV"
     },
-    quiver_port: {
-      doc: "Quiver port",
-      format: "port",
-      default: 80,
-      env: "QUIVER_PORT"
-    },
     quake_port: {
       doc: "Quake port",
       format: "port",
-      default: 80,
+      default: 9001,
       env: "QUAKE_PORT"
     },
     quake_host: {
       doc: "Quake host",
       format: "*",
-      default: 'localhost',
+      default: '127.0.0.1',
       env: "QUAKE_HOST"
     },
     quiver_port: {
-        doc: "Quake port",
+        doc: "Quiver port",
         format: "port",
-        default: 80,
+        default: 9000,
         env: "QUIVER_PORT"
     },
     quiver_host: {
         doc: "Quake host",
         format: "*",
-        default: 'localhost',
+        default: '127.0.0.1',
         env: "QUIVER_HOST"
     },
     client_id: {
