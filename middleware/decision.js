@@ -3,8 +3,8 @@ var conf = require('./../config/convict.js'),
   app = express(),
   request = require('superagent'),
   util = require('./../util.js'),
-  quakeRoot = 'https://' + conf.get('quake_host') + ':' + conf.get('quake_port'),
-  quiverRoot = 'http://' + conf.get('quiver_host') + ':' + conf.get('quiver_port');
+  quakeRoot = conf.get('quake_external'),
+  quiverRoot = conf.get('quiver_external');
 
 app.get('/quake-sdk/auth/authorize/decision/:clientID/:clientSecret', function (req, res) {
   var params = req.query,

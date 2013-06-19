@@ -6,6 +6,12 @@ var convict = require('convict'),
       default: "development",
       env: "NODE_ENV"
     },
+    quake_external: {
+      doc: "Quake external path",
+      format: "url",
+      default: "https://api.quiver.is",
+      env: "QUAKE_EXTERNAL"
+    },
     quake_port: {
       doc: "Quake port",
       format: "port",
@@ -17,6 +23,12 @@ var convict = require('convict'),
       format: "*",
       default: '127.0.0.1',
       env: "QUAKE_HOST"
+    },
+    quiver_external: {
+      doc: "Quiver external path",
+      format: "url",
+      default: "https://quiver.is",
+      env: "QUIVER_EXTERNAL"
     },
     quiver_port: {
         doc: "Quiver port",
