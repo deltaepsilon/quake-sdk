@@ -20,7 +20,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 /*
  *  Exports
 */
-module.exports.passport = passportLib.getPassport();
+//module.exports.passport = passportLib.getPassport();
 
 module.exports.middleware = {
   decision: decision
